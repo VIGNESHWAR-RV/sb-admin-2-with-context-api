@@ -1,38 +1,733 @@
-.App {
+
+
+* html{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  font-family:   'Vujahday Script', cursive;
+  background-color: #eecccc;
+}
+
+.App{
+  display:grid;
+  grid-template-columns: 0fr 1fr;
+}
+.App-header{
+  display:grid;
+  align-items: center;
+  
+}
+ /* Navigation Menu style from line 24 -  75*/
+.menu{
+  display: grid;
+  grid-template-columns: 0fr 1fr;
+  background:#5e0404;
+  border-right:4px solid white;
+  border-top:4px solid white;
+  border-bottom:4px solid white;
+  height: 40%;
+  align-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-top-right-radius: 18rem;
+  border-bottom-right-radius: 18rem;
+  transition: all 0.6s ease-in-out;
+  position:fixed;
+}
+.menu > .menuIcon{
+  background: transparent;
+  font-family:   'Vujahday Script', cursive;
+  color: rgb(240, 199, 199);
+  border:none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor:pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.menu ul{
+  margin-left:-30%;
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.menu li{
+  list-style: none;
+  margin: 3vh 0% 3vh 0%;
+}
+.menu .button{
+  font-family:   'Vujahday Script', cursive;
+  font-weight: bold;
+  font-size: 1.3vmax;
+  border:none;
+  color: rgb(240, 199, 199);
+  transition: all 0.2s ease-in-out;
+}
+.Menu{
+  display: none;
+}
+.button:hover,.menuIcon:hover{
+  color:red;
+  border-radius: 5rem;
+  transform: scale(1.15);
+  text-shadow: 0.4px 0.4px white, -0.4px -0.4px white;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  /* svgs image styles - line 78-93*/
+.content{
+  display:grid;
+  grid-template-columns: 0.17fr 1fr;
+}
+.svgs{
+  width:12vmax;
+}
+.world{
+  padding:1rem;
+  max-width: 24vh;
+  transition:all 0.6s ease-in-out;
+}
+.world:hover{
+  padding: 2rem;
+  transform: scale(1.2);
+}
+  /*body - styles */
+.Body{
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.2fr 1fr;
+}
+.welcome{
+  font-size: 2rem;
+  text-align: center;
+  color:#5e0404;
+  text-shadow: 2px 2px white, -2px -2px white;
+}
+/*DASHBOARD TOP BAR styles line 108 - 154*/
+.dashTop{
+  display:flex;
+  flex-direction: row;
+  background:#5e0404;
+  padding:1rem;
+  border:4px solid white;
+  border-radius: 3rem;
+  position: static;
+  margin-bottom: 2rem;
+}
+.searchForm{
+  display:flex;
+  flex-direction: row;
+  align-items: stretch;
+  border:4px solid white;
+  border-radius: 3rem;
+  padding: 0.2rem;
+}
+.searchForm>input{
+  width:20rem;
+  background: transparent;
+  color:rgb(240, 199, 199);
+  font-family: cursive;
+  border:none;
+}
+.searchForm>input:focus{
+  outline: none;
+}
+.searchForm>button{
+  background: transparent;
+  color:rgb(240, 199, 199);
+  border:none;
+  transition: all 0.3s ease-in-out;
+}
+.searchForm>button:hover{
+  transform: scale(1.5);
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.dashTop>.prof{
+  margin-left: auto;
+  padding-right: 1rem;
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap:1rem;
+  justify-items: center;
+  align-items: center;
+}
+
+  /*Main-content default styles*/
+.mainContent{
+  border-top-left-radius: 4rem;
+  border-left:4px groove white;
+  border-top: 4px groove white;
+  padding: 0 1rem 0 1rem;
+  overflow-y:auto;
+  padding: 1rem 3rem 0 3rem;
+  scrollbar-width: thin;
+}
+
+.styled-scrollbars {
+  /* Foreground, Background */
+  scrollbar-color: #999 #333;
+}
+::-webkit-scrollbar {
+  width: 1.2rem; /* Mostly for vertical scrollbars */
+ /* height: 1rem;  /* Mostly for horizontal scrollbars */
+}
+
+::-webkit-scrollbar-thumb { /* Foreground */
+  background:  #5e0404;
+  border:8px solid #f0c7c7;
+}
+::-webkit-scrollbar-track { /* Background */
+  background:transparent;
+}
+
+  /*dashboard infos styles line 185 - 237*/
+.dashyInfo{
+  display: grid;
+  row-gap: 2rem;
+}
+.detailsAndChart{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 4px solid white;
+  border-radius: 3rem;
+  padding:2rem;
+  background:#5e0404;
+  transition:all 0.6s ease-in-out;
+}
+.detailsAndChart:hover{
+  transform: scale(1.02);
+  box-shadow: 6px 6px 15px black;
+}
+.detailsAndChart>.details{
+  color:rgb(240, 199, 199);
+  display:grid;
+  align-items: stretch;
+  padding:1rem;
+}
+.details>h1{
+  font-size: 3rem;
+}
+.details>h2{
+  font-size: 2rem;
+  color:#5e0404;
+  background: #f0c7c7;
+  border:4px solid white;
+  border-radius: 3rem;
+  text-align: center;
+  width: 70%;
+  transition:all 0.3s ease-in-out;
+}
+.details>h2:hover{
+  color:red;
+  transform: scale(1.02);
+}
+.detailsAndChart>.Areachart{
+  display:grid;
+  padding-right: 2rem;
+  align-items: center;
+}
+#Areachart{
+  position: relative;
+  width:32rem;
+  background:rgb(240, 199, 199);
+  border:4px solid white;
+  border-radius: 2rem;
+  padding:1rem;
+}
+
+/*footer styles line 240 - 265*/
+.footer{
+  margin-top: 2rem;
+  background: #5e0404;
+  color:#f0c7c7;
+  display: grid;
+  place-items: center;
+  border:4px solid white;
+  border-radius: 3rem;
+  text-decoration: underline;
+}
+.footer>div{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer>div>a{
+  margin: 0 0 0 2rem;
+  text-decoration: none;
+  color:inherit;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+.footer>div>a:hover{
+  transform: scale(1.6);
+}
+
+/* userPages styles list styles - line 269 - 356 */
+
+.userAdd{
+  width: 100%;
+}
+.userAdd>div{
+  display: flex;
+  justify-content: flex-end;
+}
+.userAdd button{
+  border:none;
+  background: transparent;
+  color:#5e0404;
+  font-family: 'Vujahday Script', cursive;
+  font-size: large;
+  transition: all 0.3s ease-in-out;
+}
+.userAdd button:hover{
+  transform: scale(1.2);
+  color:red;
+}
+.usersDiv{
+  padding-top: 1rem;
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ border-radius: 3rem;
+ row-gap: 2rem;
+ column-gap: 1rem;
+}
+.userDiv{
+  max-width: 40rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  border:4px solid white;
+  border-radius: 3rem;
+  background:#5e0404;
+  color:#f0c7c7;
+  align-items: flex-start;
+  overflow: hidden;
+  transition: all 0.4s ease-in-out;
+}
+.userDiv:hover{
+  transform: scale(1.05);
+  box-shadow: 6px 6px 15px black;
+  color: red;
+}
+.userDiv>div{
+  display: inline-flex;
+  align-items: center;
+  padding-left: 1rem;
+}
+.userDiv>div>.img{
+  margin: 1rem 1rem 0 auto;
+  background: #f0c7c7;
+  color:#5e0404;
+  font-family: inherit;
+  transition: all 0.4s ease-in-out;
+}
+.userDiv .img:hover{
+  background: red;
+}
+.userDiv>div>p{
+  font-size: larger;
+}
+.userDiv .userEditDelete{
+  margin: 0 1rem 0 auto;
+}
+.userEditDelete>button{
+  border:none;
+  background: none;
+  color:#f0c7c7;
+  transition: all 0.5s ease-in-out;
+}
+.userEditDelete>button:hover{
+  transform: scale(1.3);
+  color:red;
+  cursor: pointer;
+}
+.userDiv .userView{
+   background: #f0c7c7;
+   border:none;
+   font-family: inherit;
+   font-size: 1.25rem;
+   transition: all 0.3s ease-in-out;
+}
+.userView:hover{
+    color: red;
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
+/*user Profile view styles - line 357-389*/
+.userProfile{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 80%;
+}
+.userProfile>div{
+  display:grid;
+  justify-content: center;
+}
+.userProfile>div>img{
+  margin-top:2rem;
+  width:25rem;
+  height: 33rem;
+  border-top-right-radius: 3rem;
+  border-bottom-left-radius: 3rem;
+  border:4px solid white;
+  transition: all 0.6s ease-in-out;
+  object-fit: cover;
+  object-position: bottom left;
+}
+.userProfile>div>img:hover{
+   object-position: top right;
+}
+.userProfile > .userinfo{
+  text-align: center;
+  font-size:2.2rem;
+  color:red
+}
+.userProfile span{
+  color: black;
+}
+  
+/*ADD User and Edit User Styles line 392 - 555*/
+.adduserHead{
+   text-align: center;
+   font-size: 1.5rem;
+   color:#5e0404;
+}
+.adduser{
+  display: grid;
+  grid-template-columns: 1fr  1fr;
+  place-items: center;
+  width: 100%;
+  margin-top: 1.5rem;
+  color: #5e0404;
+  font-size: 1.5rem;
+}
+.adduser>div{
+  border:4px solid white;
+  border-radius: 4rem;
+  background: #5e0404;
+  color:#eecccc;
+  margin:0.5rem 0;
+  padding: 1rem 2rem;
+  width: 50%;
+}
+.adduser>div>input,.adduser>div>select{
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  border:none;
+  border-radius: 1.1rem;
+  background: #f0c7c7;
+  width:100%;
+  text-align:center;
+  font-family: inherit;
+  cursor: pointer;
+}
+.addUserBtn{
+  display:flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
+}
+.addUserBtn>button{
+  background: transparent;
+  border:none;
+  font-family: inherit;
+  font-size: 1.7rem;
+  transition: all 0.4s ease-in-out;
+  color:#5e0404
+}
+.addUserBtn .cancel{
+  color:red;
+}
+.addUserBtn>button:hover{
+  transform: scaleY(1.5);
+  cursor: pointer;
+}
+.contactAndQueries{
+  display: grid;
+  grid-template-columns: 1fr 0.5fr;
+}
+.contactDetails{
+  margin: 2rem auto;
+  width:25rem;
+  height: 35rem;
+  border: 2px solid #5e0404;
+  border-radius: 10px;
+  border-top-right-radius: 6rem;
+  display: grid;
+  place-content: center;
+  transition: all 0.6s ease-in-out;
+}
+.contactDetails:hover{
+   border:2px solid firebrick;
+   border-top-right-radius: 10px;
+   transform: scale(1.05);
+}
+.contactDetails label,.contactDetails input,.contactDetails textarea,.contactDetails button{
+  font-size: 1.5rem;
+  height: 2rem;
+  width: 16rem;
+  font-family: inherit;
+  margin: 10px;
+  border:none;
+  background: transparent;
+  color: #5e0404;
+  transition: all 0.4s ease-in-out;
+}
+.contactDetails>form>input{
+  text-align: center;
+  border-bottom: 2px solid #5e0404;
+}
+.contactDetails>form>.comment{
+  border:2px solid #5e0404;
+  width:18rem;
+  height: 9rem;
+  max-width: 18rem;
+  max-height:9rem;
+}
+.contactDetails>form>input:hover{
+  transform:translateY(5px);
+}
+.contactDetails>form>input:focus{
+  outline: none;
+}
+.contactDetails>form>button:hover{
+  transform:scale(1.3);
+  color:tomato;
+}
+.contactDetails>div>input{
+  text-align: center;
+  border-bottom: 2px solid #5e0404;
+}
+.contactDetails>div>.comment{
+  border:2px solid #5e0404;
+  width:18rem;
+  height: 9rem;
+  max-width: 18rem;
+  max-height:9rem;
+}
+.contactDetails>div>input:hover{
+  transform:translateY(5px);
+}
+.contactDetails>div>input:focus{
+  outline: none;
+}
+.contactDetails>div>button:hover{
+  transform:scale(1.3);
+  color:tomato;
+}
+.queries{
+  display:flex;
+  flex-direction: column;
+  align-items: stretch;
+  border-left: 2px solid #5e0404;
+  font-size: 1rem;
+  color:red;
+}
+.query{
+  border:4px solid white;
+  background: #5e0404;
+  border-radius: 3rem;
+  margin:1rem;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  color: #f0c7c7;
+  transition: all 0.4s ease-in-out;
 }
-
-.App-link {
-  color: #61dafb;
+.query:hover{
+  transform: scale(1.05);
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.query>div>button{
+  font-family: inherit;
+  font-size: 1.5rem;
+  border:none;
+  border-radius: 5px;
+  background: transparent;
+  color: #f0c7c7;
+  transition: all 0.4s ease-in-out;
+}
+.query>div>button:hover{
+  transform: scale(1.3);
+  color:red;
+}
+/*Media query for screen below 1250px width - line 558 - 651*/
+@media only screen and (max-width: 1250px){
+  .menu{
+    display:none;
   }
-  to {
-    transform: rotate(360deg);
+  .App{
+    display:grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0fr 1fr;
+  }
+ .App-header{
+   display:block;
+ }
+  .Menu{
+    display: grid;
+    grid-template-rows: 0fr 1fr;
+    background:#5e0404;
+    border:4px solid white;
+    width : 13rem;
+    overflow: hidden;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 3rem;
+    transition: all 0.6s ease-in-out;
+    position: fixed;
+    z-index: 99;
+  }
+  ::-webkit-scrollbar {
+    width: 0.7rem; /* Mostly for vertical scrollbars */
+   /* height: 1rem;  /* Mostly for horizontal scrollbars */
+  }
+  
+  ::-webkit-scrollbar-thumb { /* Foreground */
+    background:  #5e0404;
+    border:5px solid #f0c7c7;
+  }
+  ::-webkit-scrollbar-track { /* Background */
+    background:transparent;
+  }
+  .Menu > .MenuIcon{
+    background: transparent;
+    font-family:   'Vujahday Script', cursive;
+    color: rgb(240, 199, 199);
+    border:none;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor:pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  .Menu ul{
+    text-align: center;
+    margin-left: -4vh;
+    overflow-y: auto;
+  }
+  .Menu ul::-webkit-scrollbar{
+    width: 6px;
+  }
+  .Menu li{
+    list-style: none;
+    margin: 3px 0 3px 0;
+  }
+  .Menu .button{
+    font-family:   'Vujahday Script', cursive;
+    font-weight: bold;
+    font-size: 1rem;
+    border:none;
+    background: transparent;
+    color: rgb(240, 199, 199);
+    transition: all 0.2s ease-in-out;
+  }
+  .button:hover,.MenuIcon:hover{
+    color:red;
+    border-radius: 5rem;
+    transform: scale(1.25);
+    text-shadow: 0.4px 0.4px white, -0.4px -0.4px white;
+  }
+  .content{
+    grid-template-columns: 1fr;
+    overflow-y: auto;
+  }
+  .svgs{
+    display: none;
+  }
+  .mainContent{
+    border: none;
+    overflow:visible;
+  }
+  .detailsAndChart:hover{
+    transform: none;
+    box-shadow: 6px 6px 15px black;
+  }
+  
+ .adduser{
+   grid-template-columns: 1fr;
+ }
+}
+
+/*media query for screen width 1024px and below - line 654 - 701*/
+@media only screen and (max-width: 1024px){
+
+ .dashyInfo{
+   row-gap: 0;
+ }
+.detailsAndChart>.Areachart{
+  display: none;
+}
+.detailsAndChart{
+  display: block;
+  text-align: center;
+}
+.detailsAndChart>.details{
+  justify-items: center;
+}
+.details>h1{
+  font-size: 4vmax;
+}
+.details>h2{
+  font-size: 3vmax;
+}
+.footer{
+  margin-top: 0;
+}
+.usersDiv{
+  grid-template-columns: 1fr;
+  justify-items: center;
+}
+.userDiv{
+  max-width:100%;
+  width: 60%;
+}
+.userProfile{
+  grid-template-columns: 1fr;
+}
+.contactAndQueries{
+  grid-template-columns: 1fr;
+}
+.contactDetails{
+  width:20rem;
+}
+.queries{
+  border: none;
+  border-top:2px solid #5e0404;
+  display:grid;
+  grid-template-columns: repeat(auot-fit,minmax(min-content,1fr));
+}
+}
+
+/*media query for device width less than screen width 750px - line 704 and above*/
+@media only screen and (max-width: 750px){
+  .mainContent{
+    padding: 0;
+  }
+  .searchForm>input{
+    width:100%;
+  }
+  .usersDiv{
+    row-gap: 10px;
+  }
+  .userDiv{
+   width: 90%;
+   border-bottom-left-radius:10px;
+   border-top-right-radius:10px;
+ }
+ .userProfile{
+   max-width: 100%;
+ }
+  .userProfile>div>img{
+    width: 80%;
+    height:90%;
+  }
+  .userProfile .userinfo{
+    font-size: 3vmax;
+  }
+  .adduser>div{
+    width: 80%;
+    border-bottom-left-radius:10px;
+    border-top-right-radius:10px;
   }
 }
